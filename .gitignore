@@ -1,0 +1,7 @@
+*.vcd
+sim_*
+.Xil/
+*.jou
+*.log
+__pycache__/
+scratch/
