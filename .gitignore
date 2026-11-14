@@ -1,0 +1,13 @@
+# simulation outputs
+*.vcd
+sim_*
+# Vivado
+.Xil/
+*.jou
+*.log
+*.str
+vivado*.backup.*
+# OS
+.DS_Store
+# personal work log
+Ranajeet.md
