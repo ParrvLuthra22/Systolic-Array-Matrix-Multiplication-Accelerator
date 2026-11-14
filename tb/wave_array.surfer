@@ -1,0 +1,54 @@
+# Surfer command file: diagonal wavefront view for wave_array.vcd
+# Usage (repo root):  surfer wave_array.vcd -c tb/wave_array.surfer
+# Items get letters a, b, c, ... in display order (dividers count too).
+variable_add tb_array.clk
+variable_add tb_array.clear
+variable_add tb_array.en
+divider_add Row0_A_moving_right
+variable_add tb_array.dut.g_row[0].g_col[0].u_pe.a_out
+variable_add tb_array.dut.g_row[0].g_col[1].u_pe.a_out
+variable_add tb_array.dut.g_row[0].g_col[2].u_pe.a_out
+variable_add tb_array.dut.g_row[0].g_col[3].u_pe.a_out
+divider_add Col0_B_moving_down
+variable_add tb_array.dut.g_row[0].g_col[0].u_pe.b_out
+variable_add tb_array.dut.g_row[1].g_col[0].u_pe.b_out
+variable_add tb_array.dut.g_row[2].g_col[0].u_pe.b_out
+variable_add tb_array.dut.g_row[3].g_col[0].u_pe.b_out
+divider_add Results
+variable_add tb_array.dut.g_row[0].g_col[0].u_pe.acc
+variable_add tb_array.dut.g_row[3].g_col[3].u_pe.acc
+# show data values as signed decimal, with short names
+item_focus e
+item_set_format Signed
+item_rename PE00.a_out
+item_focus f
+item_set_format Signed
+item_rename PE01.a_out
+item_focus g
+item_set_format Signed
+item_rename PE02.a_out
+item_focus h
+item_set_format Signed
+item_rename PE03.a_out
+item_focus j
+item_set_format Signed
+item_rename PE00.b_out
+item_focus k
+item_set_format Signed
+item_rename PE10.b_out
+item_focus l
+item_set_format Signed
+item_rename PE20.b_out
+item_focus m
+item_set_format Signed
+item_rename PE30.b_out
+item_focus o
+item_set_format Signed
+item_rename PE00.acc (C00)
+item_focus p
+item_set_format Signed
+item_rename PE33.acc (C33)
+item_unfocus
+# whole run, then zoom 2x around the middle (case 2: A = 1..16, B = all ones)
+zoom_fit
+zoom_in
