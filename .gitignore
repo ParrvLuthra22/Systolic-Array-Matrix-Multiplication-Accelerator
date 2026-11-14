@@ -1,7 +1,16 @@
+# simulation outputs
 *.vcd
 sim_*
+# Vivado
 .Xil/
 *.jou
 *.log
+*.str
+vivado*.backup.*
+# Python / scratch
 __pycache__/
 scratch/
+# OS
+.DS_Store
+# personal work log
+Ranajeet.md
