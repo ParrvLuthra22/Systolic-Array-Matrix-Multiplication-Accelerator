@@ -1,0 +1,44 @@
+# Surfer command file: full-system demo view for wave_tb_top.vcd (owner: Parrv)
+# Usage (repo root):  make top  then  surfer wave_tb_top.vcd -c docs/demo/top_demo.surfer
+# Items get letters a, b, c, ... in display order (dividers count too).
+# After it opens, drag-zoom on the first run (test_00): load, start pulse, 11 busy cycles, done.
+variable_add tb_top.clk
+variable_add tb_top.start
+divider_add Controller
+variable_add tb_top.dut.u_ctrl.state
+variable_add tb_top.dut.u_ctrl.t
+variable_add tb_top.dut.clear
+variable_add tb_top.dut.feed_en
+variable_add tb_top.dut.en
+divider_add Skewed_inputs_(row3|row2|row1|row0)
+variable_add tb_top.dut.a_left
+variable_add tb_top.dut.b_top
+divider_add Results
+variable_add tb_top.dut.u_array.g_row[0].g_col[0].u_pe.acc
+variable_add tb_top.dut.u_array.g_row[3].g_col[3].u_pe.acc
+variable_add tb_top.done
+variable_add tb_top.cycle_count
+variable_add tb_top.rd_row
+variable_add tb_top.rd_col
+variable_add tb_top.rd_data
+# formats and short names
+item_focus d
+item_set_format Unsigned
+item_rename state (0 IDLE 1 CLEAR 2 COMPUTE 3 DRAIN 4 DONE)
+item_focus e
+item_set_format Unsigned
+item_rename t
+item_focus m
+item_set_format Signed
+item_rename PE00.acc (C00)
+item_focus n
+item_set_format Signed
+item_rename PE33.acc (C33)
+item_focus p
+item_set_format Unsigned
+item_rename cycle_count
+item_focus s
+item_set_format Signed
+item_rename rd_data
+item_unfocus
+zoom_fit
