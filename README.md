@@ -42,7 +42,6 @@ Requires [Icarus Verilog](https://steveicarus.github.io/iverilog/) (`iverilog`, 
 | `make seq` | Sequential MAC baseline testbench |
 | `make test` | Run all unit, integration, and baseline simulations |
 | `make vectors` | Generate test vectors with `model/golden_model.py` |
-| `make test` | Run every testbench in order |
 | `make report` | Rebuild `docs/report/final_report.md` (+ `.docx`/`.html` if pandoc is installed) |
 | `make diagram` | Redraw `docs/block_diagram.svg`/`.png` (needs `pip install reportlab`) |
 | `make clean` | Delete `sim_*` and `*.vcd` |
