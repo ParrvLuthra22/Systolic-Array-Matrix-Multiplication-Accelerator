@@ -1,7 +1,7 @@
 IVERILOG = iverilog -g2012
 RTL = rtl
 
-.PHONY: pe array buf out ctrl top seq test vectors clean
+.PHONY: pe array buf out ctrl top seq test vectors report diagram clean
 
 test: pe array buf out ctrl top seq
 
@@ -36,6 +36,12 @@ seq:
 
 vectors:
 	python3 model/golden_model.py
+
+report:
+	python3 docs/report/build_report.py
+
+diagram:
+	python3 docs/make_block_diagram.py
 
 clean:
 	rm -f sim_* *.vcd

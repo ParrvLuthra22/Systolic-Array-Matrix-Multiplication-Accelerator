@@ -14,3 +14,7 @@ scratch/
 .DS_Store
 # personal work log
 Ranajeet.md
+# generated report exports (rebuild with: make report)
+docs/report/final_report.md
+docs/report/final_report.docx
+docs/report/final_report.html
