@@ -37,9 +37,31 @@ We present a 4x4 output-stationary systolic array that multiplies 8-bit signed m
 of B flow through a grid of 16 multiply-accumulate processing elements while a Moore controller
 sequences clear, compute and drain phases. One multiplication completes in 11 cycles, against 64
 for a one-MAC sequential baseline (5.82x), and the design matches a NumPy golden model on all 10
-test cases. FPGA resource usage and maximum frequency are reported for both designs.
+test cases. On a Xilinx Artix-7 (Basys 3) the array reaches 99.4 MHz, a 6.10x wall-clock
+speed-up over the baseline for about 5x the LUTs.
 
 """
+
+
+FIGURES = [
+    ("pe_waveform.png", "PE waveform: signed multiply-accumulate, clear and pass-through registers (Raghav)."),
+    ("skew_staircase.png", "Input buffer skew staircase: row i of A and column j of B enter i and j cycles late (Abhijeet)."),
+    ("array_wavefront.png", "Array wavefront: A moves right and B moves down one PE per clock (Ranjeet)."),
+    ("top_run.png", "Full-system run of test_00: load, start, CLEAR / COMPUTE / DRAIN, done after 11 cycles (Parrv)."),
+    ("vivado_utilization.png", "Vivado 2026.1 utilization of the routed systolic_top on xc7a35tcpg236-1 (Ranjeet)."),
+]
+
+
+def figures_appendix() -> str:
+    """Embed every screenshot that exists, so the report shows the evidence, not just file names."""
+    shots = HERE.parent / "screenshots"
+    blocks = ["# Appendix A: Simulation and Synthesis Figures\n"]
+    for n, (fname, caption) in enumerate(FIGURES, 1):
+        if (shots / fname).exists():
+            blocks.append(f"![Figure A.{n}: {caption}](../screenshots/{fname})\n")
+        else:
+            blocks.append(f"> TODO: `docs/screenshots/{fname}` is missing.\n")
+    return "\n".join(blocks)
 
 
 def main() -> None:
@@ -52,6 +74,7 @@ def main() -> None:
             parts.append(f"# {title}\n\n> TODO ({owner}): `docs/report/{fname}` has not been written yet.\n")
             todos.append(f"{fname} ({owner})")
         parts.append("\n\\newpage\n")
+    parts.append(figures_appendix())
     out = HERE / "final_report.md"
     out.write_text("\n".join(parts), encoding="utf-8")
     print(f"wrote {out}")
