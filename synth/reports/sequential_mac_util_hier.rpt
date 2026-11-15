@@ -1,0 +1,29 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Mon Nov 16 00:14:18 2026
+| Host         : naren-server running 64-bit unknown
+| Command      : report_utilization -hierarchical -file /home/server/p12/synth/reports/sequential_mac_util_hier.rpt
+| Design       : sequential_mac
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+|    Instance    | Module | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+| sequential_mac |  (top) |        390 |        390 |       0 |    0 | 825 |      0 |      0 |          0 |
++----------------+--------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

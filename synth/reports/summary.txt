@@ -1,0 +1,7 @@
+Part: xc7a35tcpg236-1   Clock constraint: 10.0 ns (100 MHz)
+
+Design               LUTs      FFs   DSPs   BRAM   WNS (ns)   Fmax (MHz)
+systolic_top         1940      987      0      0     -0.057         99.4
+sequential_mac        390      825      0      0     -0.537         94.9
+
+Fmax = 1000 / (CLK_PERIOD - WNS). Full details in the *_util.rpt and *_timing.rpt files.

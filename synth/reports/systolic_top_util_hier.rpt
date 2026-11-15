@@ -1,0 +1,48 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (lin64) Build 6511674 Tue Jun 16 11:01:26 MDT 2026
+| Date         : Mon Nov 16 00:12:29 2026
+| Host         : naren-server running 64-bit unknown
+| Command      : report_utilization -hierarchical -file /home/server/p12/synth/reports/systolic_top_util_hier.rpt
+| Design       : systolic_top
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
+|          Instance          |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++----------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
+| systolic_top               |          (top) |       1940 |       1940 |       0 |    0 | 987 |      0 |      0 |          0 |
+|   u_array                  | systolic_array |       1398 |       1398 |       0 |    0 | 704 |      0 |      0 |          0 |
+|     g_row[0].g_col[0].u_pe |             pe |         83 |         83 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[0].g_col[1].u_pe |           pe_0 |         93 |         93 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[0].g_col[2].u_pe |           pe_1 |        108 |        108 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[0].g_col[3].u_pe |           pe_2 |        102 |        102 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[1].g_col[0].u_pe |           pe_3 |        100 |        100 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[1].g_col[1].u_pe |           pe_4 |        106 |        106 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[1].g_col[2].u_pe |           pe_5 |        106 |        106 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[1].g_col[3].u_pe |           pe_6 |        102 |        102 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[2].g_col[0].u_pe |           pe_7 |        104 |        104 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[2].g_col[1].u_pe |           pe_8 |        106 |        106 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[2].g_col[2].u_pe |           pe_9 |        106 |        106 |       0 |    0 |  48 |      0 |      0 |          0 |
+|     g_row[2].g_col[3].u_pe |          pe_10 |        102 |        102 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[3].g_col[0].u_pe |          pe_11 |         83 |         83 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[3].g_col[1].u_pe |          pe_12 |         80 |         80 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[3].g_col[2].u_pe |          pe_13 |         80 |         80 |       0 |    0 |  40 |      0 |      0 |          0 |
+|     g_row[3].g_col[3].u_pe |          pe_14 |         76 |         76 |       0 |    0 |  32 |      0 |      0 |          0 |
+|   u_buf                    |   input_buffer |        182 |        182 |       0 |    0 | 256 |      0 |      0 |          0 |
+|   u_ctrl                   |     controller |        405 |        405 |       0 |    0 |  27 |      0 |      0 |          0 |
++----------------------------+----------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+
