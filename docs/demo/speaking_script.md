@@ -62,6 +62,11 @@ Eight slides, following Prompt 9B. Timing totals 10 minutes. The performance fig
 
 **Speaker:** Ranjeet
 
-**Show:** Vivado utilization and timing reports for both designs. Display LUT, FF, DSP, BRAM, WNS, and Fmax only after inserting the measured report values.
+**Show:** Vivado 2026.1 results for `xc7a35tcpg236-1` at a 100 MHz target:
 
-**Say:** “This slide compares the hardware cost and timing of the two implementations. Show the actual Vivado resource counts and timing for the selected board target. Read those values directly from the synthesis reports; the current project materials do not contain measured resource or frequency results.”
+| Design | LUT | FF | DSP | BRAM | WNS | Fmax |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `systolic_top` | 1,940 | 987 | 0 | 0 | −0.057 ns | 99.4 MHz |
+| `sequential_mac` | 390 | 825 | 0 | 0 | −0.537 ns | 94.9 MHz |
+
+**Say:** “For the xc7a35tcpg236-1 at a 100 megahertz target, Vivado 2026.1 reports 1,940 LUTs and 987 flip-flops for the systolic design, versus 390 LUTs and 825 flip-flops for the sequential MAC. Both use zero DSPs and BRAMs. The reported per-multiply delay is 110.6 nanoseconds versus 674.4 nanoseconds, so the systolic design is 6.10 times faster at about five times the LUT count. WNS is minus 0.057 nanoseconds for systolic and minus 0.537 nanoseconds for sequential; reported Fmax is 99.4 and 94.9 megahertz, respectively.”
