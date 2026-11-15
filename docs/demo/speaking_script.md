@@ -38,7 +38,7 @@ Eight slides, following Prompt 9B. Timing totals 10 minutes. The performance fig
 
 **Speaker:** Abhijeet, then Ranjeet
 
-**Show:** The input skew staircase and `array_wavefront.png`.
+**Show:** `array_wavefront.png` and `skew_staircase.png`, showing the array wavefront and input-buffer row/column delays.
 
 **Say:** “Row i of A is delayed by i cycles, and column j of B is delayed by j cycles. This makes A[i][k] and B[k][j] meet at PE(i,j) together. The waveform shows values advancing across rows and down columns as a diagonal wavefront.”
 
@@ -46,7 +46,7 @@ Eight slides, following Prompt 9B. Timing totals 10 minutes. The performance fig
 
 **Speaker:** Parrv
 
-**Show:** Terminal output from `make test`, especially the `tb_top` summary and cycle counts.
+**Show:** `top_run.png` with the full-system run phases, `done`, and the 11-cycle count, alongside the `make test` summary.
 
 **Say:** “The golden-model suite has 10 test cases, including directed zero and signed-extreme cases and random matrices. The full-system simulation reports all 10 tests passing. Each systolic run completes in 11 cycles from start through clear, compute, and drain.”
 
@@ -54,7 +54,7 @@ Eight slides, following Prompt 9B. Timing totals 10 minutes. The performance fig
 
 **Speaker:** Malhar
 
-**Show:** A comparison bar or table: systolic 11 cycles; sequential 64 cycles; 5.82x end-to-end speed-up.
+**Show:** The 11 vs 64 cycle comparison and `speedup.png`, whose 4×4 point is 5.82×.
 
 **Say:** “The sequential baseline uses one MAC and takes 64 cycles. The systolic design takes 11 cycles including the clear cycle. Dividing 64 by 11 gives a 5.82x end-to-end speed-up. The comparison comes from the project’s verified cycle counts.”
 
