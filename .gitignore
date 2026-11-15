@@ -18,3 +18,5 @@ Ranajeet.md
 docs/report/final_report.md
 docs/report/final_report.docx
 docs/report/final_report.html
+.env*
+.venv/

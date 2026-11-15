@@ -12,9 +12,12 @@
 #     vivado -mode batch -nojournal -nolog -source synth/run_vivado.tcl -tclargs xc7a100tcsg324-1
 #
 # Outputs (synth/reports/):
-#     <TOP>_util.rpt     report_utilization
-#     <TOP>_timing.rpt   report_timing_summary
-#     summary.txt        LUT / FF / DSP / BRAM / WNS / Fmax for both designs
+#     <TOP>_util.rpt       report_utilization
+#     <TOP>_util_hier.rpt  report_utilization -hierarchical (per module)
+#     <TOP>_timing.rpt     report_timing_summary
+#     summary.txt          LUT / FF / DSP / BRAM / WNS / Fmax for both designs
+# Checkpoints (synth/build/, git-ignored): <TOP>_routed.dcp, open in the GUI with
+#     vivado synth/build/systolic_top_routed.dcp
 # -----------------------------------------------------------------------------
 
 # ---- FPGA part: change this line once the lab board is confirmed -----------
@@ -31,7 +34,9 @@ set ROOT      [file normalize [file join $SYNTH_DIR ..]]
 set RTL       [file join $ROOT rtl]
 set XDC       [file join $SYNTH_DIR constraints.xdc]
 set REPORTS   [file join $SYNTH_DIR reports]
+set BUILD     [file join $SYNTH_DIR build]
 file mkdir $REPORTS
+file mkdir $BUILD
 
 # ---- designs: top module -> only the rtl files it needs ---------------------
 set DESIGNS [list \
@@ -74,7 +79,11 @@ foreach {TOP FILES} $DESIGNS {
     set util_rpt   [file join $REPORTS ${TOP}_util.rpt]
     set timing_rpt [file join $REPORTS ${TOP}_timing.rpt]
     report_utilization    -file $util_rpt
+    report_utilization    -hierarchical -file [file join $REPORTS ${TOP}_util_hier.rpt]
     report_timing_summary -file $timing_rpt
+
+    # routed checkpoint, for opening in the Vivado GUI (screenshots); not committed
+    write_checkpoint -force [file join $BUILD ${TOP}_routed.dcp]
 
     # ---- numbers for the summary table ----
     set fh [open $util_rpt r]; set txt [read $fh]; close $fh
