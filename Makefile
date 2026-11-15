@@ -1,7 +1,9 @@
 IVERILOG = iverilog -g2012
 RTL = rtl
 
-.PHONY: pe array buf out ctrl top seq vectors clean
+.PHONY: pe array buf out ctrl top seq test vectors clean
+
+test: pe array buf out ctrl top seq
 
 pe:
 	$(IVERILOG) -o sim_pe $(RTL)/pe.v tb/tb_pe.v
