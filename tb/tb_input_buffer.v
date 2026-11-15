@@ -19,6 +19,17 @@ module tb_input_buffer;
     wire [N*DW-1:0]     a_left;
     wire [N*DW-1:0]     b_top;
 
+    // Byte slice aliases for waveform visualization (staircase view)
+    wire [DW-1:0]       a_row0 = a_left[7:0];
+    wire [DW-1:0]       a_row1 = a_left[15:8];
+    wire [DW-1:0]       a_row2 = a_left[23:16];
+    wire [DW-1:0]       a_row3 = a_left[31:24];
+
+    wire [DW-1:0]       b_col0 = b_top[7:0];
+    wire [DW-1:0]       b_col1 = b_top[15:8];
+    wire [DW-1:0]       b_col2 = b_top[23:16];
+    wire [DW-1:0]       b_col3 = b_top[31:24];
+
     // Instantiate Device Under Test
     input_buffer #(
         .N(N),
