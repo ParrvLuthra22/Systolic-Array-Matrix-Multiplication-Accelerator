@@ -7,9 +7,10 @@ module tb_controller;
     reg        rst = 1;
     reg        start = 0;
     wire       clear, feed_en, en, busy, done;
-    wire [7:0] t, cycle_count;
+    wire [7:0]  t;
+    wire [15:0] cycle_count;
 
-    controller #(.N(N)) dut (
+    controller #(.N(N), .TW(8)) dut (
         .clk(clk), .rst(rst), .start(start),
         .clear(clear), .feed_en(feed_en), .en(en), .busy(busy), .done(done),
         .t(t), .cycle_count(cycle_count)

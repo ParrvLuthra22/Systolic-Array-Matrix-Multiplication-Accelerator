@@ -1,17 +1,19 @@
+`timescale 1ns/1ps
 // Systolic array controller FSM: IDLE -> CLEAR -> COMPUTE -> DRAIN -> DONE
 module controller #(
-    parameter N = 4
+    parameter N  = 4,
+    parameter TW = 8
 ) (
-    input  wire       clk,
-    input  wire       rst,        // synchronous, active high
-    input  wire       start,
-    output wire       clear,
-    output wire       feed_en,
-    output wire       en,
-    output wire       busy,
-    output wire       done,
-    output reg  [7:0] t,
-    output reg  [7:0] cycle_count
+    input  wire          clk,
+    input  wire          rst,        // synchronous, active high
+    input  wire          start,
+    output wire          clear,
+    output wire          en,
+    output wire          feed_en,
+    output wire          busy,
+    output wire          done,
+    output reg  [TW-1:0] t,
+    output reg  [15:0]   cycle_count
 );
 
     localparam [2:0] IDLE    = 3'd0,
@@ -25,36 +27,36 @@ module controller #(
     always @(posedge clk) begin
         if (rst) begin
             state       <= IDLE;
-            t           <= 8'd0;
-            cycle_count <= 8'd0;
+            t           <= {TW{1'b0}};
+            cycle_count <= 16'd0;
         end else begin
             case (state)
                 IDLE, DONE: begin
                     if (start) begin
                         state       <= CLEAR;
-                        t           <= 8'd0;
-                        cycle_count <= 8'd0;
+                        t           <= {TW{1'b0}};
+                        cycle_count <= 16'd0;
                     end
                 end
                 CLEAR: begin
                     state       <= COMPUTE;
-                    t           <= 8'd0;
-                    cycle_count <= cycle_count + 8'd1;
+                    t           <= {TW{1'b0}};
+                    cycle_count <= cycle_count + 16'd1;
                 end
                 COMPUTE: begin
-                    t           <= t + 8'd1;
-                    cycle_count <= cycle_count + 8'd1;
+                    t           <= t + 1'b1;
+                    cycle_count <= cycle_count + 16'd1;
                     if (t == 2*N-2) state <= DRAIN;
                 end
                 DRAIN: begin
-                    t           <= t + 8'd1;
-                    cycle_count <= cycle_count + 8'd1;
+                    t           <= t + 1'b1;
+                    cycle_count <= cycle_count + 16'd1;
                     if (t == 3*N-3) state <= DONE;
                 end
                 default: begin
                     state       <= IDLE;
-                    t           <= 8'd0;
-                    cycle_count <= 8'd0;
+                    t           <= {TW{1'b0}};
+                    cycle_count <= 16'd0;
                 end
             endcase
         end
