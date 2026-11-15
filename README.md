@@ -55,7 +55,19 @@ Requires [Icarus Verilog](https://steveicarus.github.io/iverilog/) (`iverilog`, 
 | Average MACs per compute cycle | 6.4 | 1 |
 | Golden-model tests | 10/10 pass | 10/10 pass |
 
-FPGA resources and Fmax: run `vivado -mode batch -source synth/run_vivado.tcl` (Windows/Linux); results land in `synth/reports/summary.txt`.
+### Synthesis (Vivado 2026.1, Artix-7 xc7a35tcpg236-1 / Basys 3, 100 MHz target)
+
+| Metric | Systolic array | Sequential baseline |
+|---|---:|---:|
+| LUTs | 1,940 (9.33%) | 390 (1.88%) |
+| Flip-flops | 987 (2.37%) | 825 (1.98%) |
+| DSP / BRAM | 0 / 0 | 0 / 0 |
+| WNS | −0.057 ns | −0.537 ns |
+| Fmax | 99.4 MHz | 94.9 MHz |
+| Time per 4x4 multiply | 110.6 ns | 674.4 ns |
+| Wall-clock speed-up | 6.10x | 1x |
+
+Reports: `synth/reports/` (re-run with `vivado -mode batch -nojournal -nolog -source synth/run_vivado.tcl` on Windows/Linux).
 
 ## Viewing waveforms
 
