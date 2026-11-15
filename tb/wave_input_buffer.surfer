@@ -1,0 +1,43 @@
+# Surfer command file: staircase skew view for wave_input_buffer.vcd
+# Usage (repo root):  surfer wave_input_buffer.vcd -c tb/wave_input_buffer.surfer
+variable_add tb_input_buffer.clk
+variable_add tb_input_buffer.rst
+variable_add tb_input_buffer.feed_en
+variable_add tb_input_buffer.t
+divider_add Matrix_A_Skewed_Rows_(a_left)
+variable_add tb_input_buffer.a_row0
+variable_add tb_input_buffer.a_row1
+variable_add tb_input_buffer.a_row2
+variable_add tb_input_buffer.a_row3
+divider_add Matrix_B_Skewed_Cols_(b_top)
+variable_add tb_input_buffer.b_col0
+variable_add tb_input_buffer.b_col1
+variable_add tb_input_buffer.b_col2
+variable_add tb_input_buffer.b_col3
+# Format values as Hex
+item_focus e
+item_set_format Hex
+item_rename a_left[row 0]
+item_focus f
+item_set_format Hex
+item_rename a_left[row 1]
+item_focus g
+item_set_format Hex
+item_rename a_left[row 2]
+item_focus h
+item_set_format Hex
+item_rename a_left[row 3]
+item_focus j
+item_set_format Hex
+item_rename b_top[col 0]
+item_focus k
+item_set_format Hex
+item_rename b_top[col 1]
+item_focus l
+item_set_format Hex
+item_rename b_top[col 2]
+item_focus m
+item_set_format Hex
+item_rename b_top[col 3]
+item_unfocus
+zoom_fit
