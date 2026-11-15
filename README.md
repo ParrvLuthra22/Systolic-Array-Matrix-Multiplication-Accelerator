@@ -40,5 +40,6 @@ Requires [Icarus Verilog](https://steveicarus.github.io/iverilog/) (`iverilog`, 
 | `make ctrl` | Controller testbench |
 | `make top` | Full top-level testbench (all modules) |
 | `make seq` | Sequential MAC baseline testbench |
+| `make test` | Run all unit, integration, and baseline simulations |
 | `make vectors` | Generate test vectors with `model/golden_model.py` |
 | `make clean` | Delete `sim_*` and `*.vcd` |
