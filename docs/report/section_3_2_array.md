@@ -1,6 +1,6 @@
 # Section 3.2: Systolic Array
 
-**Author:** Ranjeet
+**Author:** Ranajeet
 
 **Files:** `rtl/systolic_array.v`, `tb/tb_array.v`, `tb/wave_array.surfer`
 
